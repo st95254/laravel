@@ -18,17 +18,19 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/products/gold', [ProductController::class, 'showGold']);
+Route::get('/products/gold', [ProductController::class, 'showGold'])->name('products.gold');
 Route::get('/products/gold/fetch-gold-prices', [ProductController::class, 'fetchGoldPrice']);
 // Route::post('/products/gold/update-gold-prices', [ProductController::class, 'updateGoldPrice']);
 
 
-Route::get('/products/tea', [ProductController::class, 'showTea']);
+Route::get('/products/tea', [ProductController::class, 'showTea'])->name('products.tea');
+
 Route::get('/return', function () {
     return view('/policies/return');
-});
+})->name('policies.return');
+
 Route::get('/privacy', function () {
     return view('/policies/privacy');
-});
+})->name('policies.privacy');
 
 require __DIR__.'/auth.php';

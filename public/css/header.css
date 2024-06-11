@@ -1,6 +1,7 @@
 body{
   margin: 0;
   font-family: serif;
+  font-weight: bolder;
 }
 header {
     position: fixed;

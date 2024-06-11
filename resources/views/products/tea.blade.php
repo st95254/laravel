@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-@include('layouts.head', ['title' => '茶葉', 'cssPath' => 'css/tea.css'])
+@include('layouts.head', ['title' => '灃耘 - 茶葉', 'cssPath' => 'css/tea.css'])
 
-<body>
+<x-app-layout>
     <div class="container">
         <div class="product_lis">
             @foreach ($products as $product)
@@ -22,9 +20,6 @@
     </div>
 
     <br><br><br>
-    <hr align=center width=80% color=#e6e6e6 SIZE=1>
+    <hr style="margin: 0 auto;" width="80%" color="#e6e6e6" size="1">
     <br>
-
-    @include('partials.footer')
-</body>
-</html>
+</x-app-layout>

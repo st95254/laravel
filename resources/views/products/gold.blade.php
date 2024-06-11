@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-@include('layouts.head', ['title' => '金箔', 'cssPath' => 'css/gold.css'])
+@include('layouts.head', ['title' => '灃耘 - 金箔', 'cssPath' => 'css/gold.css'])
 
+<x-app-layout>
 <body onload="GetGoldPrice()">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
@@ -54,9 +55,7 @@
 
     <!-- Start Price Section -->
     <section id="price_sec">
-        <div class="title">
-            <h1>金箔即時價格</h1>
-        </div>
+        <div class="title">金箔即時價格</div>
         <div class="input">
             <h3 style="display: inline-block;">請輸入張數 (最少100，最多10000)</h3>
             <input type="number" value="100" id="LeafAmount" min="100" max="10000">
@@ -139,7 +138,7 @@
 
     <!-- Start Product Section -->
     <section id="product_sec">
-        <div class="title"><h1>商品選購</h1></div>
+        <div class="title">商品選購</div>
         <div class="product_lis">
             @foreach ($products as $product)
                 <div class="card">
@@ -160,9 +159,7 @@
 
     <!-- Ｓtart Portfolio Section -->
     <section id="protfolio_sec">
-        <div class="title">
-            <h1>技術與服務</h1>
-        </div>
+        <div class="title">技術與服務</div>
         <div class="info">
             <div class="portfolio-filter">
                 <ul class="filter">
@@ -231,7 +228,6 @@
     <!-- End Portfolio Section -->
 
     <br><br><br>
-
-    @include('partials.footer')
 </body>
+</x-app-layout>
 </html>

@@ -1,14 +1,15 @@
 body{
     font-family: serif;
+    font-weight: bolder;
 }
 button{
     font-family: inherit;
 }
-h1 {
+.title {
   text-align: center;
-  font-size: 35px;
+  font-size: 33px;
   color: #c7a743;
-  font-weight: normal;
+  margin: 10px auto;
 }
 
 /*Price Section*/

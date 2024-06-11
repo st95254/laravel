@@ -10,13 +10,13 @@
         </div>
         <div class="service">
             <p>客戶服務</p>
-            <a href="{{ url('return') }}">退換貨說明</a>
-            <a href="{{ url('privacy') }}">隱私權政策</a>
+            <a href="{{ route('policies.return') }}">退貨說明</a>
+            <a href="{{ route('policies.privacy') }}">隱私權政策</a>
         </div>
     </div>
     <div class="footer-right">
         <div class="logo-footer">
-            <a href="{{ url('/') }}">灃耘</a>
+            <a href="{{ route('dashboard') }}">灃耘</a>
         </div>
         <div id="copyright">
             &copy; 2024 灃耘股份有限公司. All rights reserved.
