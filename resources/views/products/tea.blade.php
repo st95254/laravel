@@ -1,13 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tea Products</title>
-    <link rel="stylesheet" href="{{ asset('css/tea.css') }}">
-</head>
-<body>
+@include('layouts.head', ['title' => '茶葉', 'cssPath' => 'css/tea.css'])
 
+<body>
     <div class="container">
         <div class="product_lis">
             @foreach ($products as $product)

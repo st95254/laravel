@@ -18,9 +18,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::get('/products/gold', [ProductController::class, 'showGold']);
 Route::get('/products/tea', [ProductController::class, 'showTea']);
 Route::get('/return', function () {
