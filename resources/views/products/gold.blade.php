@@ -1,21 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gold Products</title>
-</head>
-<body>
-    <h1>Gold Products List</h1>
-    <ul>
-        @foreach ($products as $product)
-            <li>
-                <h2>{{ $product->name }}</h2>
-                <p>{{ $product->description }}</p>
-                <p>Price: ${{ number_format($product->price, 2) }}</p>
-                <img src="{{ $product->image }}" alt="{{ $product->name }}" style="width:100px;height:auto;">
-            </li>
-        @endforeach
-    </ul>
+@include('layouts.head', ['title' => '金箔', 'cssPath' => 'css/gold.css'])
+
+<body onload="GetGoldPrice()">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.portfolio-filter li').click(function(){
+            var category = $(this).attr('data-filter');
+            $('.portfolio-filter li').removeClass('active');
+            $(this).addClass('active');
+
+            if(category == '*'){
+                $('.single-portfolio').show();
+            } else {
+                $('.single-portfolio').hide();
+                $(category).show(); 
+            }
+        });
+    });
+
+    function validateInputAndFetchPrice() {
+        var leafAmount = document.getElementById('LeafAmount').value;
+        if (leafAmount < 100 || leafAmount > 10000) {
+            // 顯示警告消息並中止操作
+            document.getElementById('alertBox').style.display = 'block';
+        } else {
+            // 隱藏警告消息（如果之前顯示過）
+            document.getElementById('alertBox').style.display = 'none';
+            GetGoldPrice();
+        }
+    }    
+    function GetGoldPrice() {
+        // 取得輸入框中的數值
+        var leafAmount = document.getElementById('LeafAmount').value;
+
+        // 進行API調用
+        fetch(`/products/gold/fetch-gold-prices?amount=${leafAmount}`)
+            .then(response => response.json())
+            .then(prices => {
+                prices.forEach((price, index) => {
+                    // 移除價格中的 'NT$ ' 和逗號
+                    var cleanPrice = price.price.replace(/NT\$ /, '').replace(/,/g, '');
+                    // 將清理後的價格轉換為浮點數並乘以 1.1
+                    var adjustedPrice = parseFloat(cleanPrice) * 1.1;
+                    // 格式化調整後的價格為兩位小數，並更新到對應的td元素
+                    document.getElementById(`total${index}`).innerText = `NT$ ${adjustedPrice.toFixed(0)}`;
+                });
+            })
+            .catch(error => console.error('Error fetching gold prices:', error));
+    }
+    </script>
+
+    <!-- Start Price Section -->
+    <section id="price_sec">
+        <div class="title">
+            <h1>金箔即時價格</h1>
+        </div>
+        <div class="input">
+            <h3 style="display: inline-block;">請輸入張數 (最少100，最多10000)</h3>
+            <input type="number" value="100" id="LeafAmount" min="100" max="10000">
+            <button class="btn-info btn" onclick="validateInputAndFetchPrice()">取得時價</button>
+            <div id="alertBox" style="color: red; display: none;">請輸入有效的張數（100 至 10000 張之間）</div>
+        </div>
+        <div class="price_table ">
+            <table class="table">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>#</th>
+                        <th>金箔種類</th>
+                        <th>金箔大小</th>
+                        <th>金箔尺寸</th>
+                        <th>價　　格</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>一號金箔</td>
+                        <td>9 分</td>
+                        <td>2.65公分 x 2.65公分</td>
+                        <td id="total0"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>一號金箔</td>
+                            <td>1 吋 2</td>
+                        <td>3.55公分 x 3.55公分</td>
+                        <td id="total1"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>一號金箔</td>
+                        <td>1 吋 8</td>
+                        <td>5.40公分 x 5.40公分</td>
+                        <td id="total2"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>一號金箔</td>
+                        <td>3 吋 6</td>
+                        <td>10.9公分 x 10.9公分</td>
+                        <td id="total3"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>四號金箔</td>
+                        <td>9 分</td>
+                        <td>2.65公分 x 2.65公分</td>
+                        <td id="total4"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6</th>
+                        <td>四號金箔</td>
+                        <td>1 吋 2</td>
+                        <td>3.55公分 x 3.55公分</td>
+                        <td id="total5"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">7</th>
+                        <td>四號金箔</td>
+                        <td>1 吋 8</td>
+                        <td>5.40公分 x 5.40公分</td>
+                        <td id="total6"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8</th>
+                        <td>四號金箔</td>
+                        <td>3 吋 6</td>
+                        <td>10.9公分 x 10.9公分</td>
+                        <td id="total7"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <!-- End Price Section -->
+
+    <!-- Start Product Section -->
+    <section id="product_sec">
+        <div class="title"><h1>商品選購</h1></div>
+        <div class="product_lis">
+            @foreach ($products as $product)
+                <div class="card">
+                    <div class="img">
+                        <img src="{{ $product->image }}" alt="{{ $product->name }}">
+                    </div>
+                    <div class="info">
+                        <div class="tt">
+                            <a href="#">{{ $product->name }}</a>
+                        </div>
+                        <div class="price">${{ number_format($product->price, 0) }}元</div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </section>
+    <!-- End Product Section -->
+
+    <!-- Ｓtart Portfolio Section -->
+    <section id="protfolio_sec">
+        <div class="title">
+            <h1>技術與服務</h1>
+        </div>
+        <div class="info">
+            <div class="portfolio-filter">
+                <ul class="filter">
+                    <li class="active" data-filter="*">全部</li>
+                    <li data-filter=".melting">熔化</li>
+                    <li data-filter=".extending">延展</li>
+                    <li data-filter=".beating">錘製</li>
+                    <li data-filter=".interleaving">交錯</li>
+                    <li data-filter=".process">加工</li>
+                </ul>
+            </div>
+            <div class="all-portfolios">
+                <!-- Melting -->
+                <div class="single-portfolio melting">
+                    <img class="img-responsive fixsize" src="{{ asset('images/gold/metling1.jpg') }}" alt="">
+                </div>
+                <!-- Extending -->
+                <div class="single-portfolio extending">
+                    <img class="img-responsive fixsize" src="{{ asset('images/gold/rolling1a.jpg') }}" alt="">
+                </div>
+                <div class="single-portfolio extending">
+                    <img class="img-responsive fixsize" src="{{ asset('images/gold/rolling1b.jpg') }}" alt="">
+                </div>
+                <div class="single-portfolio extending">
+                    <img class="img-responsive fixsize" src="{{ asset('images/gold/rolling1c.jpg') }}" alt="">
+                </div>
+                <!-- beating -->
+                <div class="single-portfolio beating">
+                    <img class="img-responsive fixsize" src="{{ asset('images/gold/beating1.jpg') }}" alt="">
+                </div>
+                <div class="single-portfolio beating">
+                    <img class="img-responsive fixsize" src="{{ asset('images/gold/beating2.jpg') }}" alt="">
+                </div>
+                <div class="single-portfolio beating">
+                    <img class="img-responsive fixsize" src="{{ asset('images/gold/beating3.jpg') }}" alt="">
+                </div>
+                <div class="single-portfolio beating">
+                    <img class="img-responsive fixsize" src="{{ asset('images/gold/beating4.jpg') }}" alt="">
+                </div>
+                <div class="single-portfolio beating">
+                    <img class="img-responsive fixsize" src="{{ asset('images/gold/beating5.jpg') }}" alt="">
+                </div>
+                <!-- interleaving -->
+                <div class="single-portfolio interleaving">
+                    <img class="img-responsive fixsize" src="{{ asset('images/gold/interleaving1.jpg') }}" alt="">
+                </div>
+                <div class="single-portfolio interleaving">
+                    <img class="img-responsive fixsize" src="{{ asset('images/gold/interleaving2.jpg') }}" alt="">
+                </div>
+                <!-- process -->
+                <div class="single-portfolio process">
+                    <img class="img-responsive fixsize" src="{{ asset('images/gold/examining1.jpg') }}" alt="">
+                </div>
+                <div class="single-portfolio process">
+                    <img class="img-responsive fixsize" src="{{ asset('images/gold/packaging1.jpg') }}" alt="">
+                </div>
+                <div class="single-portfolio process">
+                    <img class="img-responsive fixsize" src="{{ asset('images/gold/cutting1.jpg') }}" alt="">
+                </div>
+                <div class="single-portfolio process">
+                    <img class="img-responsive fixsize" src="{{ asset('images/gold/cutting2.jpg') }}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Portfolio Section -->
+
+    <br><br><br>
+
+    @include('partials.footer')
 </body>
 </html>

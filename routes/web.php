@@ -19,6 +19,10 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/products/gold', [ProductController::class, 'showGold']);
+Route::get('/products/gold/fetch-gold-prices', [ProductController::class, 'fetchGoldPrice']);
+// Route::post('/products/gold/update-gold-prices', [ProductController::class, 'updateGoldPrice']);
+
+
 Route::get('/products/tea', [ProductController::class, 'showTea']);
 Route::get('/return', function () {
     return view('/policies/return');

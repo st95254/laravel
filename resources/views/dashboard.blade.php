@@ -24,11 +24,11 @@
 
                     <div class="showcase">
                         <a href="products/gold">
-                            <img src="{{ asset('images/home_gold.jpeg') }}" alt="前往金箔商品頁">
+                            <img src="{{ asset('images/home/gold.jpeg') }}" alt="前往金箔商品頁">
                             <div class="description">金箔</div>
                         </a>
                         <a href="products/tea">
-                            <img src="{{ asset('images/home_tea.jpg') }}" alt="前往茶葉商品頁">
+                            <img src="{{ asset('images/home/tea.jpg') }}" alt="前往茶葉商品頁">
                             <div class="description">茶葉</div>
                         </a>
                     </div>
