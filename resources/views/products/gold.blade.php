@@ -147,7 +147,7 @@
                     </div>
                     <div class="info">
                         <div class="tt">
-                            <a href="#">{{ $product->name }}</a>
+                            <a href="{{ route('products.detail', ['id' => $product->id]) }}">{{ $product->name }}</a>
                         </div>
                         <div class="price">${{ number_format($product->price, 0) }}元</div>
                     </div>

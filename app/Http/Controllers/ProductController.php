@@ -21,6 +21,17 @@ class ProductController extends Controller
         return view('products.tea', compact('products'));
     }
 
+    public function showDetail($id)
+    {
+        $product = Product::find($id);
+
+        if (!$product) {
+            abort(404, '商品找不到');
+        }
+
+        return view('products.detail', compact('product'));
+    }
+
     public function fetchGoldPrice(Request $request)
     {
         $amount = $request->input('amount', 100);  // 默認為100如果沒有提供
