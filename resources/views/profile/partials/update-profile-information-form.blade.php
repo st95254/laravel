@@ -1,13 +1,11 @@
 <section>
-    <header>
-        <h2 class="text-lg font-medium text-gray-900">
-            {{ __('檔案資訊') }}
-        </h2>
+    <h2 class="text-lg font-medium text-gray-900">
+        {{ __('檔案資訊') }}
+    </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
-            {{ __("更新您帳戶的個人資料資訊和電子郵件地址。") }}
-        </p>
-    </header>
+    <p class="mt-1 text-sm text-gray-600">
+        {{ __("更新您帳戶的個人資料資訊和電子郵件。") }}
+    </p>
 
     <form id="send-verification" method="post" action="{{ route('verification.send') }}">
         @csrf

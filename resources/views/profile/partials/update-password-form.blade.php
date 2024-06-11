@@ -1,13 +1,11 @@
 <section>
-    <header>
-        <h2 class="text-lg font-medium text-gray-900">
-            {{ __('更新密碼') }}
-        </h2>
+    <h2 class="text-lg font-medium text-gray-900">
+        {{ __('更新密碼') }}
+    </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
-            {{ __('確保您的帳戶使用長的隨機密碼以確保安全。') }}
-        </p>
-    </header>
+    <p class="mt-1 text-sm text-gray-600">
+        {{ __('確保您的帳戶使用長的隨機密碼以確保安全。') }}
+    </p>
 
     <form method="post" action="{{ route('password.update') }}" class="mt-6 space-y-6">
         @csrf
