@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,6 +24,9 @@ Route::get('/products/gold/fetch-gold-prices', [ProductController::class, 'fetch
 // Route::post('/products/gold/update-gold-prices', [ProductController::class, 'updateGoldPrice']);
 Route::get('/products/tea', [ProductController::class, 'showTea'])->name('products.tea');
 Route::get('/products/{id}', [ProductController::class, 'showDetail'])->name('products.detail');
+
+Route::get('/cart', [CartController::class, 'showCart'])->name('cart');
+Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
 
 Route::get('/return', function () {
     return view('/policies/return');

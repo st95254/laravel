@@ -24,7 +24,7 @@
                 <div id="after-login">
                     <ul id="right-menu">
                         <li>
-                            <a href="">
+                            <a href="{{ route('cart') }}">
                                 <img id="cart" src="{{ asset('images/header/cart.png') }}">
                                 <span class="tooltip">前往購物車</span>
                             </a>
