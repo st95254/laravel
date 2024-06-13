@@ -29,10 +29,11 @@
     
 </x-app-layout>
 
-@if (session('alert'))
-    <div class="alert alert-warning">
-        {{ session('alert') }}
-    </div>
-@endif
-
+ <script>
+    var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+      alert(msg);
+    }
+</script>
 
