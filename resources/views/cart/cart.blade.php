@@ -11,20 +11,20 @@
             <div class="operate">　　</div>
         </div>
         @foreach ($cart_items as $item)
-        <div class="item_body">
+        <div class="item_body" data-item-id="{{ $item->id }}">
             <div class="item">
                 <img src="{{ $item->product->image }}" alt="">
             </div>
             <div class="name">{{ $item->product->name }}</div>
             <div class="price">${{ $item->price }}</div>
             <div class="count">
-                <button @click="handleSub(item)">-</button>
-                {{ $item->quantity }}
-                <button @click="handlePlus(item)">+</button>
+                <button class="sub">-</button>
+                <span>{{ $item->quantity }}</span>
+                <button class="plus">+</button>
             </div>
             <div class="sum">${{ $item->price * $item->quantity }}</div>
             <div class="operate">
-                <button @click="handledelete($item->id)">刪除</button>
+                <button class="delete">刪除</button>
             </div>
         </div>
         @endforeach
@@ -36,27 +36,27 @@
 
         <div class="content-wrapper">
             <div class="order_sec">
-                <form id="order_form" action="../controller/CheckoutController.php" method="post">
-
+                <form id="order_form" action="{{ route('cart.checkout') }}" method="POST">
+                    @csrf
                     <div class="input-group">
                         <label for="name">收件人 </label>
-                        <input id="name" name="name" type="text" maxlength="100" autocomplete="name" required>
+                        <input id="name" name="name" type="text" maxlength="100" autocomplete="name" value="{{ old('name', $user->name) }}" required>
                     </div>
                     <div class="input-group">
                         <label for="phone">聯絡電話 </label>
-                        <input id="phone" name="phone" type="text" autocomplete="tel" pattern="^\d{8,15}$" required>
+                        <input id="phone" name="phone" type="text" autocomplete="tel" pattern="^\d{8,15}$" value="{{ old('phone')}}" required>
                     </div>
                     <div class="input-group">
                         <label for="address">收貨地址 </label>
-                        <input id="address" name="address" type="text" maxlength="100" autocomplete="street-address" require>
+                        <input id="address" name="address" type="text" maxlength="100" autocomplete="street-address" value="{{ old('address')}}" required>
                     </div>
                     <div class="input-group">
                         <label for="account">匯款帳號末 5 碼 </label>
-                        <input id="account" name="account" type="text" autocomplete="off" pattern="^\d{5}$" required>
+                        <input id="account" name="account" type="text" autocomplete="off" pattern="^\d{5}$" value="{{ old('remark')}}" required>
                     </div>
                     <div class="input-group">
                         <div>備註</div>
-                        <input id="remark" name="remark" type="text" maxlength="100" autocomplete="off">
+                        <input id="remark" name="remark" type="text" maxlength="100" autocomplete="off" value="{{ old('remark')}}">
                     </div>
                     <input type="hidden" id="totalInput" name="totalInput">
                     <input type="hidden" id="shippingFeeInput" name="shippingFeeInput">

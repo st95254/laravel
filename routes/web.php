@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\HistoryController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,8 +26,17 @@ Route::get('/products/gold/fetch-gold-prices', [ProductController::class, 'fetch
 Route::get('/products/tea', [ProductController::class, 'showTea'])->name('products.tea');
 Route::get('/products/{id}', [ProductController::class, 'showDetail'])->name('products.detail');
 
-Route::get('/cart', [CartController::class, 'showCart'])->name('cart');
 Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'showCart'])->name('cart');
+Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.update');
+Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+Route::get('/cart/checkout/complete', function () {
+    return view('cart.checkout-complete');
+})->middleware(['auth', 'verified'])->name('checkout.complete');
+
+Route::get('/history', [HistoryController::class, 'index'])->name('history.index')->middleware('auth');
+Route::get('/history/{history_id}', [HistoryController::class, 'showHistoryItem'])->name('history.items')->middleware('auth');
+
 
 Route::get('/return', function () {
     return view('/policies/return');

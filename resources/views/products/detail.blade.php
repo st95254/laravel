@@ -3,7 +3,7 @@
 <x-app-layout>
     <div class="content">
         <article class="showcase">
-            <img src="{{ $product->image ?: '../../element/home_tea.jpg' }}" class="product-image">
+            <img src="{{ $product->image ?: 'images/home/gold.jpeg' }}" class="product-image">
         </article>
         <aside class="information">
             <div id="frame">

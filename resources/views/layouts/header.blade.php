@@ -32,7 +32,7 @@
                         <li>
                             <img id="user" src="{{ asset('images/header/user.png') }}">
                             <ul>
-                                <li><a href="">購買紀錄</a></li>
+                                <li><a href="{{ route('history.index') }}">購買紀錄</a></li>
                                 <li><a href="{{ route('profile.edit') }}">個人資料</a></li>
                                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">登　　出</a></li>
                             </ul>

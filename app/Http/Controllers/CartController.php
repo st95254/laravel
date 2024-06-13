@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\CartItem;
 use App\Models\Product;
+use App\Models\History;
+use App\Models\HistoryItem;
 use Auth;
 
 class CartController extends Controller
@@ -15,7 +17,6 @@ class CartController extends Controller
         $product = Product::findOrFail($request->product_id); // Fetch the product
 
         $cart = Cart::firstOrCreate(
-            ['user_id' => Auth::id()], // Ensure there's a cart for the user
             ['user_id' => Auth::id()]
         );
 
@@ -43,11 +44,76 @@ class CartController extends Controller
 
     public function showCart()
     {
+        $user = auth()->user();
         $cart = Cart::with('cartItems.product')->where('user_id', Auth::id())->firstOrFail();
         $cart_items = $cart->cartItems;
         if ($cart_items->isEmpty()) {
             return redirect('dashboard')->with('alert', '您的購物車沒有商品');
         }
-        return view('cart.cart', compact('cart_items'));
+        return view('cart.cart', compact('user', 'cart_items'));
+    }
+
+    public function updateCart(Request $request)
+    {
+        $cartItem = CartItem::find($request->input('item_id'));
+        if (!$cartItem) {
+            return response()->json(['error' => 'Item not found'], 404);
+        }
+
+        if ($request->input('action') === 'delete') {
+            $cartItem->delete();
+        } else {
+            $cartItem->quantity = $request->input('quantity');
+            $cartItem->save();
+        }
+
+        return response()->json(['success' => true]);
+    }
+
+    public function checkout(Request $request)
+    {
+        $user = Auth::user();
+
+        // Validate request data
+        $validated = $request->validate([
+            'name' => 'required|string|max:100',
+            'phone' => 'required|regex:/^\d{8,15}$/',
+            'address' => 'required|string|max:100',
+            'account' => 'required|regex:/^\d{5}$/',
+            'totalInput' => 'required|integer',
+            'shippingFeeInput' => 'required|integer',
+            'orderStatusInput' => 'required|string'
+        ]);
+
+        // Create a history record
+        $history = History::create([
+            'user_id' => $user->id,
+            'name' => $validated['name'],
+            'phone' => $validated['phone'],
+            'address' => $validated['address'],
+            'account' => $validated['account'],
+            'remark' => $request->input('remark', ''),
+            'trade_no' => now()->format('YmdHis') . $user->id,
+            'total' => $validated['totalInput'],
+            'date' => now(),
+            'shipping_fee' => $validated['shippingFeeInput'],
+            'status' => $validated['orderStatusInput']
+        ]);
+
+        $cartItems = $user->cart->cartItems;
+
+        foreach ($cartItems as $item) {
+            HistoryItem::create([
+                'history_id' => $history->id,
+                'product_id' => $item->product_id,
+                'quantity' => $item->quantity,
+                'price' => $item->price
+            ]);
+        }
+
+        // Clear cart after checkout
+        $user->cartItems()->delete();
+
+        return redirect()->route('checkout.complete')->with('success', 'Order successfully placed!');
     }
 }
