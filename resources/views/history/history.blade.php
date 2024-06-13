@@ -18,6 +18,9 @@
             <button onclick="window.location.href='{{ route('history.items', ['history_id' => $history->id]) }}'" id="btn">查看訂單</button>
         </div>
         @endforeach
+        <div class="pagination">
+            {{ $histories->links('pagination::default') }}
+        </div>
     </div>
     <hr style="margin: 0 auto;" width="80%" color="#e6e6e6" size="1"><br>
 </x-app-layout>

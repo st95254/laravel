@@ -11,7 +11,9 @@ class HistoryController extends Controller
     public function index()
     {
         $user_id = auth()->id(); // Gets the authenticated user's ID
-        $histories = History::where('user_id', $user_id)->get(); // Fetch histories related to the user
+        $histories = History::where('user_id', $user_id)
+                            ->orderBy('created_at', 'desc') // 按照创建时间降序排序
+                            ->paginate(10);
 
         return view('history.history', compact('histories'));
     }
