@@ -1,10 +1,10 @@
 <section>
     <h2 class="text-lg font-medium text-gray-900">
-        {{ __('檔案資訊') }}
+        {{ __('Profile Information') }}
     </h2>
 
     <p class="mt-1 text-sm text-gray-600">
-        {{ __("更新您帳戶的個人資料資訊和電子郵件。") }}
+        {{ __("Update your account's profile information and email address.") }}
     </p>
 
     <form id="send-verification" method="post" action="{{ route('verification.send') }}">
@@ -16,7 +16,7 @@
         @method('patch')
 
         <div>
-            <x-input-label for="name" :value="__('姓名')" />
+            <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
@@ -29,16 +29,16 @@
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                 <div>
                     <p class="text-sm mt-2 text-gray-800">
-                        {{ __('您的電子郵件未經驗證。') }}
+                        {{ __('Your email address is unverified.') }}
 
                         <button form="send-verification" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            {{ __('按一下此處重新傳送驗證電子郵件。') }}
+                            {{ __('Click here to re-send the verification email.') }}
                         </button>
                     </p>
 
                     @if (session('status') === 'verification-link-sent')
                         <p class="mt-2 font-medium text-sm text-green-600">
-                            {{ __('新的驗證連結已發送到您的電子郵件。') }}
+                            {{ __('A new verification link has been sent to your email address.') }}
                         </p>
                     @endif
                 </div>
@@ -46,7 +46,7 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('儲存') }}</x-primary-button>
+            <x-primary-button>{{ __('Save') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
                 <p
@@ -55,7 +55,7 @@
                     x-transition
                     x-init="setTimeout(() => show = false, 2000)"
                     class="text-sm text-gray-600"
-                >{{ __('完成') }}</p>
+                >{{ __('Saved.') }}</p>
             @endif
         </div>
     </form>
