@@ -14,6 +14,11 @@ class CartController extends Controller
 {
     public function addToCart(Request $request)
     {
+        // 檢查用戶是否登入
+        if (!Auth::check()) {
+            return redirect('/login')->with('alert', '請先登入會員！');
+        }
+
         $product = Product::findOrFail($request->product_id); // Fetch the product
 
         $cart = Cart::firstOrCreate(
