@@ -16,7 +16,7 @@
     </div>
     <div class="footer-right">
         <div class="logo-footer">
-            <a href="{{ route('dashboard') }}">灃耘</a>
+            <a href="{{ route('home') }}">灃耘</a>
         </div>
         <div id="copyright">
             &copy; 2024 灃耘股份有限公司. All rights reserved.

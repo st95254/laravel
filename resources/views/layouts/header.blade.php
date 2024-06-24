@@ -4,7 +4,7 @@
     <div class="header-container">
         <div class="header-left">
             <div class="logo">
-                <a href="{{ route('dashboard') }}">灃耘</a>
+                <a href="{{ route('home') }}">灃耘</a>
             </div>
             <ul id="left-menu">
                 <li><a href="{{ route('products.gold') }}">金箔</a></li>
