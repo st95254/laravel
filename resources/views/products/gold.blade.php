@@ -47,10 +47,30 @@
                     var adjustedPrice = parseFloat(cleanPrice) * 1.1;
                     // 格式化調整後的價格為兩位小數，並更新到對應的td元素
                     document.getElementById(`total${index}`).innerText = `NT$ ${adjustedPrice.toFixed(0)}`;
+
+                    if(leafAmount == 100) {
+                        updateGoldPriceOnServer(index, adjustedPrice.toFixed(0));
+                    }
                 });
             })
             .catch(error => console.error('Error fetching gold prices:', error));
     }
+
+    function updateGoldPriceOnServer(productId, newPrice) {
+        fetch('/products/gold/update-gold-prices', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            body: JSON.stringify({prices: {[productId]: newPrice}})
+        })
+        .then(response => response.json())
+        .then(data => console.log('Price update response:', data))
+        .catch(error => console.error('Error updating gold prices:', error));
+    }
+
+
     </script>
 
     <!-- Start Price Section -->

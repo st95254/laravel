@@ -26,7 +26,7 @@ class ProductController extends Controller
         $product = Product::find($id);
 
         if (!$product) {
-            abort(404, '商品找不到');
+            abort(404, '找不到此商品');
         }
 
         return view('products.detail', compact('product'));
@@ -46,21 +46,19 @@ class ProductController extends Controller
         return response()->json($prices);
     }
 
-    // public function updateGoldPrice(Request $request)
-    // {
-    //     $prices = $request->input('prices');
+    public function updateGoldPrice(Request $request)
+    {
+        $prices = $request->input('prices');
 
-    //     foreach ($prices as $index => $price) {
-    //         $productId = $index + 1;
-    //         $product = Product::find($productId);
-    //         if ($product) {
-    //             $product->price = $price;
-    //             $product->save();
-    //         }
-    //     }
+        foreach ($prices as $index => $price) {
+            $productId = $index + 1;
+            $product = Product::find($productId);
+            if ($product) {
+                $product->price = $price;
+                $product->save();
+            }
+        }
 
-    //     return response()->json(['message' => 'Prices updated successfully']);
-    // }
-
-
+        return response()->json(['message' => 'Prices updated successfully']);
+    }
 }

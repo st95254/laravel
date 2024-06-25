@@ -22,7 +22,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/products/gold', [ProductController::class, 'showGold'])->name('products.gold');
 Route::get('/products/gold/fetch-gold-prices', [ProductController::class, 'fetchGoldPrice']);
-// Route::post('/products/gold/update-gold-prices', [ProductController::class, 'updateGoldPrice']);
+Route::post('/products/gold/update-gold-prices', [ProductController::class, 'updateGoldPrice']);
 Route::get('/products/tea', [ProductController::class, 'showTea'])->name('products.tea');
 Route::get('/products/{id}', [ProductController::class, 'showDetail'])->name('products.detail');
 
