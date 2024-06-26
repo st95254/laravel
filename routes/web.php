@@ -46,4 +46,8 @@ Route::get('/privacy', function () {
     return view('/policies/privacy');
 })->name('policies.privacy');
 
+Route::get('/admin', function () {
+    return view('/admin/dashboard');
+})->name('admin.dashboard')->middleware('auth');
+
 require __DIR__.'/auth.php';
