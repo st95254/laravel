@@ -50,11 +50,18 @@ class CartController extends Controller
     public function showCart()
     {
         $user = auth()->user();
-        $cart = Cart::with('cartItems.product')->where('user_id', Auth::id())->firstOrFail();
+        $cart = Cart::with('cartItems.product')->where('user_id', Auth::id())->first();
+
+        if (!$cart) {
+            // 購物車不存在，創建一個新的空購物車或顯示適當的消息
+            return redirect('dashboard')->with('alert', '您的購物車是空的！');
+        }
+
         $cart_items = $cart->cartItems;
         if ($cart_items->isEmpty()) {
-            return redirect('dashboard')->with('alert', '您的購物車沒有商品');
+            return redirect('dashboard')->with('alert', '您的購物車是空的！');
         }
+
         return view('cart.cart', compact('user', 'cart_items'));
     }
 
