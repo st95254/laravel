@@ -24,6 +24,29 @@
             @endforeach
         </div>
 
+        <div class="detail">
+            <div class="info-group">
+                <label for="name">收件人：</label>
+                <span class="info" id="name">{{ $history->name }}</span>
+            </div>
+            <div class="info-group">
+                <label for="phone">聯絡電話：</label>
+                <span class="info" id="phone">{{ $history->phone }}</span>
+            </div>
+            <div class="info-group">
+                <label for="address">收貨地址：</label>
+                <span class="info" id="address">{{ $history->address }}</span>
+            </div>
+            <div class="info-group">
+                <label for="account">匯款帳號末 5 碼：</label>
+                <span class="info" id="account">{{ $history->account }}</span>
+            </div>
+            <div class="info-group">
+                <label for="note">備註：</label>
+                <span class="info" id="note">{{ $history->remark }}</span>
+            </div>
+        </div>
+
         <div class="money">
             <div class="line-item">
                 <span class="moneyTitle">商品金額：</span>

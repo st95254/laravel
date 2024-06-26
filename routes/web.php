@@ -46,8 +46,8 @@ Route::get('/privacy', function () {
     return view('/policies/privacy');
 })->name('policies.privacy');
 
-Route::get('/admin', function () {
-    return view('/admin/dashboard');
-})->name('admin.dashboard')->middleware('auth');
+Route::get('/admin', [HistoryController::class, 'showAllHistories'])->name('admin.dashboard')->middleware('auth');
+Route::post('/admin/history/search', [HistoryController::class, 'search'])->name('history.search');
+Route::post('/admin/history/update-status', [HistoryController::class, 'updateStatus'])->name('history.updateStatus');
 
 require __DIR__.'/auth.php';

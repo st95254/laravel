@@ -24,5 +24,3 @@
     </div>
     <hr style="margin: 0 auto;" width="80%" color="#e6e6e6" size="1"><br>
 </x-app-layout>
-
-<script src="{{ asset('js/history.js') }}"></script>

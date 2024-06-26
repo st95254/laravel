@@ -23,7 +23,7 @@ button{
     background-color: #F5F5F5;
     border-radius: 3px;
     padding: 5px 0px;
-    margin-top: 15px;
+    margin: 15px 0px 20px 0px;
     align-items: center;    
 }
 .item {
