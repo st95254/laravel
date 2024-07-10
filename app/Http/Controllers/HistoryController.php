@@ -20,7 +20,7 @@ class HistoryController extends Controller
 
     public function showAllHistories()
     {
-        $histories = History::all();
+        $histories = History::orderBy('created_at', 'desc')->get();
         return view('admin.dashboard', ['histories' => $histories]);
     }
 
