@@ -43,7 +43,7 @@
             </div>
             <div class="info-group">
                 <label for="note">備註：</label>
-                <span class="info" id="note">{{ $history->remark }}</span>
+                <span class="info" id="note">{{ $history->remark ? $history->remark : '無' }}</span>
             </div>
         </div>
 
