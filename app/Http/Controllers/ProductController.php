@@ -11,13 +11,17 @@ class ProductController extends Controller
 {
     public function showGold()
     {
-        $products = Product::where('product_type', 'gold')->get();
+        $products = Product::where('product_type', 'gold')
+                            ->where('in_stock', 1)
+                            ->get();
         return view('products.gold', compact('products'));
     }
 
     public function showTea()
     {
-        $products = Product::where('product_type', 'tea')->get();
+        $products = Product::where('product_type', 'tea')
+                            ->where('in_stock', 1)
+                            ->get();
         return view('products.tea', compact('products'));
     }
 
