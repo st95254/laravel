@@ -61,3 +61,13 @@ select{
   background-color: white;
   transition-duration: 0.3s;
 }
+.pagination {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+.pagination svg {
+    width: 15px;  /* 調整SVG圖標的寬度 */
+    height: 15px; /* 調整SVG圖標的高度 */
+}

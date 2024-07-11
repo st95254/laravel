@@ -35,8 +35,7 @@ Route::get('/cart/checkout/complete', function () {
 })->middleware(['auth', 'verified'])->name('checkout.complete');
 
 Route::get('/history', [HistoryController::class, 'index'])->name('history.index')->middleware('auth');
-Route::get('/history/{history_id}', [HistoryController::class, 'showHistoryItem'])->name('history.items')->middleware('auth');
-
+Route::get('/history/{history_id}', [HistoryController::class, 'showHistoryItems'])->name('history.items')->middleware('auth');
 
 Route::get('/return', function () {
     return view('/policies/return');
@@ -46,8 +45,9 @@ Route::get('/privacy', function () {
     return view('/policies/privacy');
 })->name('policies.privacy');
 
-Route::get('/admin', [HistoryController::class, 'showAllHistories'])->name('admin.dashboard')->middleware('auth');
-Route::post('/admin/history/search', [HistoryController::class, 'search'])->name('history.search');
-Route::post('/admin/history/update-status', [HistoryController::class, 'updateStatus'])->name('history.updateStatus');
+Route::get('/admin', [HistoryController::class, 'showAllUserHistories'])->name('admin.dashboard')->middleware('auth');
+Route::post('/admin', [HistoryController::class, 'searchUserHistoriesByEmail'])->name('history.user')->middleware('auth');
+Route::post('/admin/history/search', [HistoryController::class, 'searchHistoriesByTradeNo'])->name('history.search');
+Route::post('/admin/history/update-status', [HistoryController::class, 'updateHistoryStatus'])->name('history.updateStatus');
 
 require __DIR__.'/auth.php';

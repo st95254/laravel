@@ -4,6 +4,12 @@
 <html lang="en">
 
 <body>
+    <form id="searchForm" method="POST" action="{{ route('history.user') }}">
+        @csrf
+        <input type="text" name="email" placeholder="使用者電子信箱">
+        <button type="submit">搜尋</button>
+    </form>
+
     <form id="searchForm" method="POST" action="{{ route('history.search') }}">
         @csrf
         <input type="text" name="trade_no" placeholder="訂單編號">
@@ -40,5 +46,14 @@
         <button onclick="window.location.href='{{ route('history.items', ['history_id' => $history->id]) }}'" id="btn">查看訂單</button>
     </div>
     @endforeach
+    <div class="pagination">
+        {{ $histories->links() }}
+    </div>
 </body>
 </html>
+
+<script>
+    @if (session('error'))
+        alert('{{ session('error') }}');
+    @endif
+</script>
