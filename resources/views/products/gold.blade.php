@@ -184,11 +184,11 @@
             <div class="portfolio-filter">
                 <ul class="filter">
                     <li class="active" data-filter="*">全部</li>
-                    <li data-filter=".melting">熔化</li>
-                    <li data-filter=".extending">延展</li>
-                    <li data-filter=".beating">錘製</li>
-                    <li data-filter=".interleaving">交錯</li>
-                    <li data-filter=".process">加工</li>
+                    <li data-filter=".melting">熔金</li>
+                    <li data-filter=".extending">壓延</li>
+                    <li data-filter=".beating">捶打</li>
+                    <li data-filter=".interleaving">出箔</li>
+                    <li data-filter=".process">剪裁</li>
                 </ul>
             </div>
             <div class="all-portfolios">
