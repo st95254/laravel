@@ -1,72 +1,87 @@
-body{
-    font-family: serif;
-    font-weight: bolder;
+.footer {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 120px;
 }
-.footer{
-  width: 80%;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  margin-bottom: 120px;
-}
-.footer-left{
-  display: flex;
-  flex-wrap: wrap;
-}
-.contact, .service {
-  margin-right: 100px;
-  min-width: 150px;
-}
-.contact p, .service p {
-  font-size: 15px;
-}
-.contact a, .service a {
-  display: block;
-  text-decoration: none;
-  line-height: 24px;
-  font-size: 13px;
-  color: #808080;
-}
-.service a:hover{
-  color: #c7a743;
-}
-.logo-footer{
-  margin-left: 315px;
-  display: flex;
-  align-items: center;
-}
-.logo-footer #icon{
-  width: 35px;
-}
-.logo-footer a{
-  letter-spacing:4px;
-  font-size: 25px;
-  color: #c7a743;
-  margin-left: 12px;
-  text-decoration: none;
-}
-#copyright{
-  margin-top: 10px;
-  text-align: right;
-  font-size: 13px;
-}
-@media (max-width: 768px) {
-  .footer {
-    justify-content: center;
-  }
-  
-  .footer-left, .footer-right {
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    justify-content: center;
-    margin-bottom: 100px;
-  }
-  
-  .contact, .service {
-    margin-right: 0;
     margin-bottom: 20px;
-  }
-  
- /* .logo-footer {
+}
+
+.contact, .service {
+    margin: 0 0 20px 0;
+    text-align: center;
+    min-width: 150px;
+}
+
+.contact p, .service p {
+    font-size: 15px;
+}
+
+.contact a, .service a {
+    display: block;
+    text-decoration: none;
+    line-height: 24px;
+    font-size: 14px;
+    color: #808080;
+}
+
+.service a:hover {
+    color: #c7a743;
+}
+
+.logo-footer {
+    display: flex;
+    align-items: center;
     justify-content: center;
-  }*/
+}
+
+.logo-footer a {
+    letter-spacing: 4px;
+    font-size: 25px;
+    color: #c7a743;
+    margin-left: 12px;
+    text-decoration: none;
+}
+
+#copyright {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 13px;
+}
+
+@media (min-width: 768px) {
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer-left {
+        flex-direction: row;
+        align-items: flex-start; /* Ensure vertical alignment is centered */
+        justify-content: flex-start;
+        width: auto;
+        margin-bottom: 0;
+    }
+
+    .contact, .service {
+        margin: 0 100px 0 0;
+        text-align: left;
+    }
+
+    .logo-footer {
+        margin-left: auto; /* Push to the right */
+        justify-content: flex-end; /* Align content to the right */
+    }
+
+    #copyright {
+        text-align: right;
+    }
 }
