@@ -60,27 +60,11 @@ button{
     }
 }
 
-.money {
-    width: 20%;
-    float: right;
-    margin: 20px 0;
-    display: flex;
-    flex-direction: column; /* Stack children vertically */
-    font-size: 17px;
+.title{
+    font-size: 20px;
+    margin: 20px 0 10px 0;
 }
-.line-item {
-    display: flex;
-    justify-content: space-between; /* Align children on opposite ends */
-    margin-bottom: 5px; /* Optional: Adds space between line items */
-}
-.moneyTitle {
-    text-align: left;
-    display: block;
-}
-.amount {
-    text-align: right;
-    display: block;
-}
+
 .total .moneyTitle, .total .amount {
     font-weight: bold;
     font-size: 19px;

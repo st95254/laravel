@@ -25,6 +25,7 @@
         </div>
 
         <div class="detail">
+            <div class="title">訂單資料</div>
             <div class="info-group">
                 <label for="name">收件人：</label>
                 <span class="info" id="name">{{ $history->name }}</span>
@@ -48,6 +49,7 @@
         </div>
 
         <div class="money">
+            <div class="title">訂單金額</div>
             <div class="line-item">
                 <span class="moneyTitle">商品金額：</span>
                 <span class="amount" id="product">${{ $history->total }}</span>
