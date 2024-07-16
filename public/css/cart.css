@@ -203,3 +203,33 @@ button{
     margin-top: 30px;
     margin-bottom: 30px;
 }
+@media (max-width: 768px) {
+    .item{
+        display: none;
+    }
+
+    .name, .price, .count, .sum, .operate{
+        width: 20%;
+    }
+
+    .count button {
+        width: 17px;
+        height: 25px;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .order_sec, .money {
+        width: 100%;
+    }
+
+    #order_form .input-group input {
+        width: 100%;
+    }
+
+    .money {
+        margin-top: 20px;
+    }
+}
