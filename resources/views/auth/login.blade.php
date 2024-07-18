@@ -1,3 +1,6 @@
+<head>
+    <title>{{ $title ?? '灃耘 - 登入' }}</title>
+</head>
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />

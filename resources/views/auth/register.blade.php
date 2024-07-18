@@ -1,3 +1,6 @@
+<head>
+    <title>{{ $title ?? '灃耘 - 註冊' }}</title>
+</head>
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf

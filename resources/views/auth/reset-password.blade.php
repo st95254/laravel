@@ -1,3 +1,6 @@
+<head>
+    <title>{{ $title ?? '灃耘 - 重設密碼' }}</title>
+</head>
 <x-guest-layout>
     <form method="POST" action="{{ route('password.store') }}">
         @csrf
