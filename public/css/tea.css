@@ -17,6 +17,8 @@ body{
 @media (max-width: 768px) {
     #product_sec{
         width: 95%;
+        margin: 0 auto;
+        margin-top: 100px;
     }
     .product_lis {
         grid-template-columns: repeat(2, 1fr);
