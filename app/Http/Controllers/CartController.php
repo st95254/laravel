@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Order\Admin;
+use App\Mail\Order\Consumer;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\CartItem;
@@ -122,6 +125,9 @@ class CartController extends Controller
                 'price' => $item->price
             ]);
         }
+
+        Mail::to(config('mail.admin_email'))->send(new Admin($history));
+        Mail::to($user->email)->send(new Consumer($history));
 
         // Clear cart after checkout
         $user->cartItems()->delete();
