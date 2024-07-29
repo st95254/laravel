@@ -1,4 +1,4 @@
-@include('layouts.head', ['title' => '灃耘 - 茶葉', 'cssPath' => 'css/product.css'])
+@include('layouts.head', ['title' => '灃耘', 'cssPath' => 'css/product.css'])
 
 <x-app-layout>
     <div class="content">
