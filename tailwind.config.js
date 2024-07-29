@@ -12,7 +12,7 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['serif', ...defaultTheme.fontFamily.sans],
+                sans: ['serif', ...defaultTheme.fontFamily.serif],
             },
         },
     },
