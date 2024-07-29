@@ -1,7 +1,7 @@
 @include('layouts.head', ['title' => '灃耘 - 茶葉', 'cssPath' => 'css/tea.css'])
 
 <x-app-layout>
-    <div class="container">
+    <section id="product_sec">
         <div class="product_lis">
             @foreach ($products as $product)
                 <div class="card">
@@ -17,7 +17,7 @@
                 </div>
             @endforeach
         </div>
-    </div>
+    </section>
 
     <br><br><br>
     <hr style="margin: 0 auto;" width="80%" color="#e6e6e6" size="1">

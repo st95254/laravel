@@ -168,7 +168,10 @@ h3 {
   margin: 10px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
+    #product_sec{
+        width: 95%;
+    }
     .product_lis {
         grid-template-columns: repeat(2, 1fr);
     }
