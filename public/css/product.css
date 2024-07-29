@@ -17,10 +17,6 @@ button{
   justify-content: space-between;
   margin: 130px auto 50px auto;
 }
-.imformation{
-  width: 300px;
-  border-radius: 10px;
-}
 #frame{
   margin: 15px 20px;
   width: 280px;
@@ -112,5 +108,8 @@ button{
 
   .information {
     width: 100%;
+  }
+  #frame{
+    margin: 0 auto;
   }
 }
