@@ -55,7 +55,6 @@ class Admin extends Mailable
 
     public function build()
     {
-        return $this->from('st890219@gmail.com')
-                    ->view('emails.order.admin');
+        return $this->view('emails.order.admin');
     }
 }

@@ -55,7 +55,6 @@ class Consumer extends Mailable
 
     public function build()
     {
-        return $this->from('st890219@gmail.com')
-                    ->view('emails.order.consumer');
+        return $this->view('emails.order.consumer');
     }
 }
