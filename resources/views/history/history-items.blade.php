@@ -7,7 +7,7 @@
             <div class="name"></div>
             <div class="price">單價</div>
             <div class="count">數量</div>
-            <div class="sum">合計</div>
+            <div class="sum">小計</div>
         </div>
 
         <div class="item_container">
