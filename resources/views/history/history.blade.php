@@ -11,10 +11,10 @@
         </div>
         @foreach($histories as $history)
         <div class="item_body">
-            <div class="trade_no">{{ $history->trade_no }}</div>
-            <div class="date">{{ $history->date->format('Y-m-d') }}</div>
-            <div class="amount">${{ $history->total }}</div>
-            <div class="state">{{ $history->status }}</div>
+            <div class="trade_no" data-label="訂單編號：">{{ $history->trade_no }}</div>
+            <div class="date" data-label="購買日期：">{{ $history->date->format('Y-m-d') }}</div>
+            <div class="amount" data-label="合計：">${{ $history->total }}</div>
+            <div class="state" data-label="訂單狀態：">{{ $history->status }}</div>
             <button onclick="window.location.href='{{ route('history.items', ['history_id' => $history->id]) }}'" id="btn">查看訂單</button>
         </div>
         @endforeach
