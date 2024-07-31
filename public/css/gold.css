@@ -132,40 +132,50 @@ h3 {
     padding-top: 20px;
     padding-bottom: 75px;
 }
-.all-portfolios{
-    width: 80%;
-    margin: auto;
+
+.portfolio-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.all-portfolios {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
 }
+
 .portfolio-filter ul {
-  list-style-type: none;
-  color: #737266;
-  font-size: 15px;
-  text-align: center;
-  padding: 0;
-  margin: 15px 0;
+    list-style-type: none;
+    color: #737266;
+    font-size: 15px;
+    text-align: center;
+    padding: 0;
+    margin: 15px 0;
 }
+
 .portfolio-filter li {
-  display: inline-block;
-  margin: 10px 5px;
-  cursor: pointer;
-  padding: 5px 10px;
-  border: 1px solid #737266;
-  transition: all 0.3s;
+    display: inline-block;
+    margin: 10px 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #737266;
+    transition: all 0.3s;
 }
+
 .portfolio-filter li.active {
-  background-color: #737266;
-  border: 1px solid #737266;
-  color: #fff;
+    background-color: #737266;
+    border: 1px solid #737266;
+    color: #fff;
 }
+
 .single-portfolio {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
+
 .single-portfolio img.fixsize {
-  width: 150px;
-  height: 150px;
-  margin: 10px;
+    width: 150px;
+    height: 150px;
+    margin: 10px;
 }
 
 @media (max-width: 768px) {

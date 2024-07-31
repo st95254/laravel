@@ -191,56 +191,58 @@
                     <li data-filter=".process">剪裁</li>
                 </ul>
             </div>
-            <div class="all-portfolios">
-                <!-- Melting -->
-                <div class="single-portfolio melting">
-                    <img class="img-responsive fixsize" src="{{ asset('images/gold/metling1.jpg') }}" alt="">
-                </div>
-                <!-- Extending -->
-                <div class="single-portfolio extending">
-                    <img class="img-responsive fixsize" src="{{ asset('images/gold/rolling1a.jpg') }}" alt="">
-                </div>
-                <div class="single-portfolio extending">
-                    <img class="img-responsive fixsize" src="{{ asset('images/gold/rolling1b.jpg') }}" alt="">
-                </div>
-                <div class="single-portfolio extending">
-                    <img class="img-responsive fixsize" src="{{ asset('images/gold/rolling1c.jpg') }}" alt="">
-                </div>
-                <!-- beating -->
-                <div class="single-portfolio beating">
-                    <img class="img-responsive fixsize" src="{{ asset('images/gold/beating1.jpg') }}" alt="">
-                </div>
-                <div class="single-portfolio beating">
-                    <img class="img-responsive fixsize" src="{{ asset('images/gold/beating2.jpg') }}" alt="">
-                </div>
-                <div class="single-portfolio beating">
-                    <img class="img-responsive fixsize" src="{{ asset('images/gold/beating3.jpg') }}" alt="">
-                </div>
-                <div class="single-portfolio beating">
-                    <img class="img-responsive fixsize" src="{{ asset('images/gold/beating4.jpg') }}" alt="">
-                </div>
-                <div class="single-portfolio beating">
-                    <img class="img-responsive fixsize" src="{{ asset('images/gold/beating5.jpg') }}" alt="">
-                </div>
-                <!-- interleaving -->
-                <div class="single-portfolio interleaving">
-                    <img class="img-responsive fixsize" src="{{ asset('images/gold/interleaving1.jpg') }}" alt="">
-                </div>
-                <div class="single-portfolio interleaving">
-                    <img class="img-responsive fixsize" src="{{ asset('images/gold/interleaving2.jpg') }}" alt="">
-                </div>
-                <!-- process -->
-                <div class="single-portfolio process">
-                    <img class="img-responsive fixsize" src="{{ asset('images/gold/examining1.jpg') }}" alt="">
-                </div>
-                <div class="single-portfolio process">
-                    <img class="img-responsive fixsize" src="{{ asset('images/gold/packaging1.jpg') }}" alt="">
-                </div>
-                <div class="single-portfolio process">
-                    <img class="img-responsive fixsize" src="{{ asset('images/gold/cutting1.jpg') }}" alt="">
-                </div>
-                <div class="single-portfolio process">
-                    <img class="img-responsive fixsize" src="{{ asset('images/gold/cutting2.jpg') }}" alt="">
+            <div class="portfolio-wrapper">
+                <div class="all-portfolios">
+                    <!-- Melting -->
+                    <div class="single-portfolio melting">
+                        <img class="img-responsive fixsize" src="{{ asset('images/gold/metling1.jpg') }}" alt="">
+                    </div>
+                    <!-- Extending -->
+                    <div class="single-portfolio extending">
+                        <img class="img-responsive fixsize" src="{{ asset('images/gold/rolling1a.jpg') }}" alt="">
+                    </div>
+                    <div class="single-portfolio extending">
+                        <img class="img-responsive fixsize" src="{{ asset('images/gold/rolling1b.jpg') }}" alt="">
+                    </div>
+                    <div class="single-portfolio extending">
+                        <img class="img-responsive fixsize" src="{{ asset('images/gold/rolling1c.jpg') }}" alt="">
+                    </div>
+                    <!-- Beating -->
+                    <div class="single-portfolio beating">
+                        <img class="img-responsive fixsize" src="{{ asset('images/gold/beating1.jpg') }}" alt="">
+                    </div>
+                    <div class="single-portfolio beating">
+                        <img class="img-responsive fixsize" src="{{ asset('images/gold/beating2.jpg') }}" alt="">
+                    </div>
+                    <div class="single-portfolio beating">
+                        <img class="img-responsive fixsize" src="{{ asset('images/gold/beating3.jpg') }}" alt="">
+                    </div>
+                    <div class="single-portfolio beating">
+                        <img class="img-responsive fixsize" src="{{ asset('images/gold/beating4.jpg') }}" alt="">
+                    </div>
+                    <div class="single-portfolio beating">
+                        <img class="img-responsive fixsize" src="{{ asset('images/gold/beating5.jpg') }}" alt="">
+                    </div>
+                    <!-- Interleaving -->
+                    <div class="single-portfolio interleaving">
+                        <img class="img-responsive fixsize" src="{{ asset('images/gold/interleaving1.jpg') }}" alt="">
+                    </div>
+                    <div class="single-portfolio interleaving">
+                        <img class="img-responsive fixsize" src="{{ asset('images/gold/interleaving2.jpg') }}" alt="">
+                    </div>
+                    <!-- Process -->
+                    <div class="single-portfolio process">
+                        <img class="img-responsive fixsize" src="{{ asset('images/gold/examining1.jpg') }}" alt="">
+                    </div>
+                    <div class="single-portfolio process">
+                        <img class="img-responsive fixsize" src="{{ asset('images/gold/packaging1.jpg') }}" alt="">
+                    </div>
+                    <div class="single-portfolio process">
+                        <img class="img-responsive fixsize" src="{{ asset('images/gold/cutting1.jpg') }}" alt="">
+                    </div>
+                    <div class="single-portfolio process">
+                        <img class="img-responsive fixsize" src="{{ asset('images/gold/cutting2.jpg') }}" alt="">
+                    </div>
                 </div>
             </div>
         </div>
