@@ -61,6 +61,39 @@ select{
   background-color: white;
   transition-duration: 0.3s;
 }
+
+@media (max-width: 768px) {
+    .item_header {
+        display: none;
+    }
+
+    .item_body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border: 1px solid #ddd;
+        padding-right: 20px;
+        margin-top: 10px;
+        background-color: #F5F5F5;
+    }
+
+    .trade_no, .date, .amount, .state{
+        width: 100%;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .trade_no::before, .date::before, .amount::before, .state::before {
+        content: attr(data-label);
+        font-weight: bold;
+    }
+
+    #btn {
+        width: 100%;
+    }
+}
+
 .pagination {
     margin-top: 15px;
     display: flex;
