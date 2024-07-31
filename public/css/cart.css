@@ -204,17 +204,30 @@ button{
     margin-bottom: 30px;
 }
 @media (max-width: 768px) {
-    .item{
+    .item_header, .item{
         display: none;
     }
 
-    .name, .price, .count, .sum, .operate{
-        width: 20%;
+    .item_body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-top: 10px;
+        background-color: #F5F5F5;
     }
 
-    .count button {
-        width: 17px;
-        height: 25px;
+    .name, .price, .count, .sum, .operate {
+        width: 100%;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .name::before, .price::before, .count::before, .sum::before, .operate::before {
+        content: attr(data-label);
+        font-weight: bold;
     }
 
     .content-wrapper {
@@ -233,3 +246,4 @@ button{
         margin-top: 20px;
     }
 }
+

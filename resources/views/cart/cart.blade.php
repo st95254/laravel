@@ -15,15 +15,15 @@
             <div class="item">
                 <img src="{{ $item->product->image }}" alt="">
             </div>
-            <div class="name">{{ $item->product->name }}</div>
-            <div class="price">${{ $item->price }}</div>
-            <div class="count">
+            <div class="name" data-label="商品：">{{ $item->product->name }}</div>
+            <div class="price" data-label="單價：">${{ $item->price }}</div>
+            <div class="count" data-label="數量：">
                 <button class="sub">-</button>
                 <span>{{ $item->quantity }}</span>
                 <button class="plus">+</button>
             </div>
-            <div class="sum">${{ $item->price * $item->quantity }}</div>
-            <div class="operate">
+            <div class="sum" data-label="小計：">${{ $item->price * $item->quantity }}</div>
+            <div class="operate" data-label="操作：">
                 <button class="delete">刪除</button>
             </div>
         </div>
