@@ -5,6 +5,8 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
+        <div style="font-size: 30px; color: #c7a743; font-weight: bold;margin-bottom: 15px; text-align: center; ">註　冊</div>
+
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />

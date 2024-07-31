@@ -1,4 +1,5 @@
 @include('layouts.head', ['title' => '灃耘', 'cssPath' => 'css/dashboard.css'])
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
 
 <x-app-layout>
     <div class="banner">

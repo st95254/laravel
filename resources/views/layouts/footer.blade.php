@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/footer.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
 
 <div class="footer">
     <div class="footer-left">

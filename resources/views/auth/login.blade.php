@@ -8,6 +8,8 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
+        <div style="font-size: 30px; color: #c7a743; font-weight: bold;margin-bottom: 15px; text-align: center; ">登　入</div>
+
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
