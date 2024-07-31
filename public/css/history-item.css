@@ -51,18 +51,45 @@ button{
     width: 18%;
 }
 
-@media screen and (max-width: 1100px) {
-    .item{
+@media (max-width: 768px) {
+    .item_header, .item{
         display: none;
     }
-    .name, .price, .count, .sum{
-        width: 25%;
+
+    .item_body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-top: 10px;
+        background-color: #F5F5F5;
     }
+
+    .name, .price, .count, .sum {
+        width: 100%;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .name::before, .price::before, .count::before, .sum::before {
+        content: attr(data-label);
+        font-weight: bold;
+    }
+}
+
+.detail, .money{
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #fff;
+    border-radius: 3px;
 }
 
 .title{
     font-size: 20px;
-    margin: 20px 0 10px 0;
+    margin-bottom: 10px;
 }
 
 .total .moneyTitle, .total .amount {

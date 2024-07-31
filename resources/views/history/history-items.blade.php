@@ -16,10 +16,10 @@
                     <div class="item">
                         <img src="{{ $item->product->image }}" alt="">
                     </div>
-                    <div class="name">{{ $item->product->name }}</div>
-                    <div class="price">{{ $item->price }}</div>
-                    <div class="count">{{ $item->quantity }}</div>
-                    <div class="sum">${{ $item->price * $item->quantity }}</div>
+                    <div class="name" data-label="商品：">{{ $item->product->name }}</div>
+                    <div class="price" data-label="單價：">{{ $item->price }}</div>
+                    <div class="count" data-label="數量：">{{ $item->quantity }}</div>
+                    <div class="sum" data-label="小計：">${{ $item->price * $item->quantity }}</div>
                 </div>
             @endforeach
         </div>
