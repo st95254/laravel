@@ -1,6 +1,4 @@
-<head>
-    <title>{{ $title ?? '灃耘 - 註冊' }}</title>
-</head>
+@include('layouts.head', ['title' => '灃耘 - 註冊'])
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf

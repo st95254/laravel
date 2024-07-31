@@ -22,11 +22,12 @@
 }
 
 .contact p, .service p {
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .contact a, .service a {
     display: block;
+    font-weight: normal;
     text-decoration: none;
     line-height: 24px;
     font-size: 14px;
@@ -54,6 +55,7 @@
 #copyright {
     margin-top: 10px;
     text-align: center;
+    font-weight: normal;
     font-size: 13px;
 }
 

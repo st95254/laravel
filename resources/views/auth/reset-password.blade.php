@@ -1,6 +1,4 @@
-<head>
-    <title>{{ $title ?? '灃耘 - 重設密碼' }}</title>
-</head>
+@include('layouts.head', ['title' => '灃耘 - 重設密碼'])
 <x-guest-layout>
     <form method="POST" action="{{ route('password.store') }}">
         @csrf
