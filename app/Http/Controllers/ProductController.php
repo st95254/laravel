@@ -65,4 +65,57 @@ class ProductController extends Controller
 
         return response()->json(['message' => 'Prices updated successfully']);
     }
+
+    // Admin 功能
+    public function index()
+    {
+        $products = Product::all();
+        return view('admin.product', compact('products'));
+    }
+
+    // Store a newly created product in storage
+    public function store(Request $request)
+    {
+        $request->validate([
+            'product_type' => 'required',
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'image' => 'required|url',
+            'in_stock' => 'required|integer'
+        ]);
+
+        Product::create($request->all());
+
+        return redirect()->route('product.index')->with('success', '產品新增成功');
+    }
+
+    // Update the specified product in storage
+    public function update(Request $request, $id)
+    {
+        $product = Product::find($id);
+        if (!$product) {
+            return redirect()->route('product.index')->with('error', 'Product not found.');
+        }
+
+        $request->validate([
+            'product_type' => 'required',
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'image' => 'required|url',
+            'in_stock' => 'required|integer'
+        ]);
+
+        $product->fill($request->all());
+        $product->save();
+
+        return redirect()->route('product.index')->with('success', '產品資訊更新成功');
+    }
+
+
+    // Remove the specified product from storage
+    public function destroy($id)
+    {
+        Product::find($id)->delete();
+        return redirect()->route('product.index')->with('success', '產品刪除成功');
+    }
 }

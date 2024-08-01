@@ -53,5 +53,6 @@ Route::get('/admin/history', [HistoryController::class, 'showAllUserHistories'])
 Route::post('/admin/history/user', [HistoryController::class, 'searchUserHistoriesByEmail'])->name('history.user')->middleware('auth');
 Route::post('/admin/history/search', [HistoryController::class, 'searchHistoriesByTradeNo'])->name('history.search')->middleware('auth');
 Route::post('/admin/history/update-status', [HistoryController::class, 'updateHistoryStatus'])->name('history.updateStatus')->middleware('auth');
+Route::resource('/admin/product', ProductController::class);
 
 require __DIR__.'/auth.php';

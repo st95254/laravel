@@ -9,5 +9,5 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['product_type', 'name', 'price', 'image', 'description'];  // 允許批量賦值的欄位
+    protected $fillable = ['product_type', 'name', 'price', 'image', 'description', 'in_stock'];  // 允許批量賦值的欄位
 }
