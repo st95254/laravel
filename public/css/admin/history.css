@@ -1,34 +1,17 @@
-body{
-    font-family: serif;
+.content{
     width: 75%;
-    margin: 20px auto;
+    margin: 100px auto 50px auto;
 }
-button{
-    font-family: inherit;
-}
-form{
-    display: flex;
-}
-.search-box {
-    border: none;
-    padding: 5px;
-    margin: 5px auto;
-}
-.search-box input[type="text"] {
-    font-family: serif;
-    padding: 10px;
-    width: 150px;
-}
-.search-box button {
-    border: none;
-    background-color: #007BFF;
-    color: white;
-    padding: 10px 20px;
+#searchForm button, #updateStatusForm button {
+    border: 1px solid #000;
+    background-color: #fff;
+    margin: 0 5px;
+    padding: 8px 20px;
     border-radius: 5px;
     cursor: pointer;
 }
-.search-box button:hover {
-    background-color: #0056b3;
+#searchForm button:hover, #updateStatusForm button:hover {
+    background-color: #F0F0F0;
 }
 select{
     font-family: serif;
@@ -48,9 +31,9 @@ select{
     margin: 10px;
 }
 #btn {
-    background-color: #F5F5F5;
-    border-color: black;
-    color: black;
+    background-color: #c7a743;
+    color: white; 
+    border: none;
     padding: 10px 0;
     border-radius: 5px; 
     cursor: pointer;
@@ -58,7 +41,8 @@ select{
     font-size: 1em;
 }
 #btn:hover {
-  background-color: white;
+  background-color: #b5983c;
+  color: white;
   transition-duration: 0.3s;
 }
 
@@ -94,13 +78,39 @@ select{
     }
 }
 
+/*pagination*/
 .pagination {
     margin-top: 15px;
     display: flex;
     justify-content: center;
     padding: 0;
 }
-.pagination svg {
-    width: 15px;  /* 調整SVG圖標的寬度 */
-    height: 15px; /* 調整SVG圖標的高度 */
+
+.pagination li {
+    margin: 0 5px;
+    font-size: 20px;
+    border: 1px solid #A9A9A9;
+    border-radius: 4px;
+}
+
+.pagination a, .pagination span {
+    padding: 8px 16px;
+    color: #696969;
+}
+
+.pagination li.active{
+    border: 1px solid #b5983c;
+    background-color: #b5983c;
+}
+
+.active span{
+    color: white;
+}
+
+.pagination li.disabled{
+    border: 1px solid   #DCDCDC;
+}
+
+.disabled span{
+    color:  #DCDCDC;
 }
