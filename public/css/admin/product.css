@@ -71,3 +71,33 @@ input.form-control {
     border-radius: 3px;
     font-size: 15px;
 }
+
+/* 響應式調整 */
+@media (max-width: 767px) {
+    .table {
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+    }
+
+    .table thead {
+        display: none;
+    }
+
+    .table tbody, .table tr, .table td {
+        display: block;
+        width: 100%;
+    }
+
+    .table td {
+        text-align: left;
+    }
+
+    .table td:before {
+        content: attr(data-label);
+    }
+
+    .table td img {
+        max-width: 50px;
+    }
+}

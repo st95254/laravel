@@ -30,16 +30,16 @@
             <tbody>
                 @foreach ($products as $product)
                 <tr>
-                    <td>{{ $product->id }}</td>
-                    <td>{{ $product->product_type }}</td>
-                    <td>{{ $product->name }}</td>
-                    <td>{{ $product->price }}</td>
-                    <td><img src="{{ $product->image }}" alt="{{ $product->name }}" width="50"></td>
-                    <td>{{ $product->description }}</td>
+                    <td data-label="ID：">{{ $product->id }}</td>
+                    <td data-label="類別：">{{ $product->product_type }}</td>
+                    <td data-label="名稱：">{{ $product->name }}</td>
+                    <td data-label="價格：">{{ $product->price }}</td>
+                    <td data-label="圖片："><img src="{{ $product->image }}" alt="{{ $product->name }}" width="50"></td>
+                    <td data-label="敘述：">{{ $product->description }}</td>
                     <!-- <td>{{ $product->created_at }}</td>
                     <td>{{ $product->updated_at }}</td> -->
-                    <td>{{ $product->in_stock }}</td>
-                    <td>
+                    <td data-label="存貨：">{{ $product->in_stock }}</td>
+                    <td data-label="操作：">
                         <a class="btn btn-primary" href="#" onclick="showEditForm({{ $product }})">編輯</a>
                         <!-- <form action="{{ route('product.destroy', $product->id) }}" method="POST" style="display:inline;">
                             @csrf
