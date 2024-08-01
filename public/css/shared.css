@@ -10,3 +10,14 @@ body{
     margin: 100px auto 50px auto;
     font-weight: normal;
 }
+.btn{
+    border: 1px solid #000;
+    background-color: #fff;
+    margin: 0 5px;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn:hover{
+    background-color: #F0F0F0;
+}

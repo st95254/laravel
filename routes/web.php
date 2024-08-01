@@ -45,9 +45,13 @@ Route::get('/privacy', function () {
     return view('/policies/privacy');
 })->name('policies.privacy');
 
-Route::get('/admin', [HistoryController::class, 'showAllUserHistories'])->name('admin.dashboard')->middleware('auth');
-Route::post('/admin', [HistoryController::class, 'searchUserHistoriesByEmail'])->name('history.user')->middleware('auth');
-Route::post('/admin/history/search', [HistoryController::class, 'searchHistoriesByTradeNo'])->name('history.search');
-Route::post('/admin/history/update-status', [HistoryController::class, 'updateHistoryStatus'])->name('history.updateStatus');
+// Admin
+Route::get('/admin', function () {
+    return view('/admin/dashboard');
+})->name('admin.dashboard')->middleware('auth');
+Route::get('/admin/history', [HistoryController::class, 'showAllUserHistories'])->name('admin.history')->middleware('auth');
+Route::post('/admin/history/user', [HistoryController::class, 'searchUserHistoriesByEmail'])->name('history.user')->middleware('auth');
+Route::post('/admin/history/search', [HistoryController::class, 'searchHistoriesByTradeNo'])->name('history.search')->middleware('auth');
+Route::post('/admin/history/update-status', [HistoryController::class, 'updateHistoryStatus'])->name('history.updateStatus')->middleware('auth');
 
 require __DIR__.'/auth.php';

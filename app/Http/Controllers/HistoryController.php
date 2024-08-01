@@ -34,7 +34,7 @@ class HistoryController extends Controller
     public function showAllUserHistories()
     {
         $histories = History::orderBy('created_at', 'desc')->paginate(10);
-        return view('admin.dashboard', ['histories' => $histories]);
+        return view('admin.history', ['histories' => $histories]);
     }
 
     public function searchUserHistoriesByEmail(Request $request)
@@ -49,9 +49,9 @@ class HistoryController extends Controller
 
         $histories = History::where('user_id', $user->id)
                             ->orderBy('created_at', 'desc')
-                            ->get();
+                            ->paginate(10);
 
-        return view('admin.dashboard', ['histories' => $histories]);
+        return view('admin.history', ['histories' => $histories]);
     }
 
     public function searchHistoriesByTradeNo(Request $request)
