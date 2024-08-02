@@ -4,17 +4,19 @@
     <section id="product_sec">
         <div class="product_lis">
             @foreach ($products as $product)
-                <div class="card">
-                    <div class="img">
-                        <img src="{{ $product->image }}" alt="{{ $product->name }}">
-                    </div>
-                    <div class="info">
-                        <div class="tt">
-                           <a href="{{ route('products.detail', ['id' => $product->id]) }}">{{ $product->name }}</a>
+                <a href="{{ route('products.detail', ['id' => $product->id]) }}" class="card-link">
+                    <div class="card">
+                        <div class="img">
+                            <img src="{{ $product->image }}" alt="{{ $product->name }}">
                         </div>
-                        <div class="price">${{ number_format($product->price, 0) }}元</div>
+                        <div class="info">
+                            <div class="tt">
+                                {{ $product->name }}
+                            </div>
+                            <div class="price">${{ number_format($product->price, 0) }}元</div>
+                        </div>
                     </div>
-                </div>
+                </a>
             @endforeach
         </div>
     </section>

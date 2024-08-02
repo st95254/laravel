@@ -25,6 +25,7 @@ button{
 .description{
   font-size: 18px;
   line-height: 24px;
+  margin: 25px 0;
 }
 .detail{
   display: flex;
