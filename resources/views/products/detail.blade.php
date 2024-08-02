@@ -11,7 +11,7 @@
                     <p>{{ $product->name }}</p>
                 </div>
                 <div class="description">
-                    <p>{{ $product->description }}</p>
+                    <p>{!! $product->description !!}</p>
                 </div>
                 <div class="detail">
                     <div class="money">NT$ {{ $product->price }}</div>
