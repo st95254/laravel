@@ -7,7 +7,7 @@
                 <a href="{{ route('home') }}">灃耘</a>
             </div>
             <ul id="left-menu">
-                <li><a href="{{ route('products.gold') }}">金箔</a></li>
+                <li><a href="{{ route('products.gold') }}">箔材</a></li>
                 <li><a href="{{ route('products.tea') }}">茶葉</a></li>
             </ul>
         </div>

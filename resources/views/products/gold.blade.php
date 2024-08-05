@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-@include('layouts.head', ['title' => '灃耘 - 金箔', 'cssPath' => 'css/gold.css'])
+@include('layouts.head', ['title' => '灃耘 - 箔材', 'cssPath' => 'css/gold.css'])
 
 <x-app-layout>
 <body onload="GetGoldPrice()">
