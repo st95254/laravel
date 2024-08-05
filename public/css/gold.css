@@ -72,7 +72,7 @@ h3 {
 /*Product Section*/
 #product_sec{
     width: 80%;
-    margin: 100px auto;
+    margin: 70px auto;
 }
 .sub_title {
     text-align: center;
@@ -126,6 +126,28 @@ h3 {
     font-size: 16px;
     line-height: 20px;
     letter-spacing: .05rem;
+}
+
+/*Proof Section*/
+#proof_sec{
+    text-align: center;
+}
+.link{
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.proof_btn{
+    border: 1px solid #000;
+    background-color: #fff;
+    margin: 5px;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.proof_btn:hover{
+    background-color: #F0F0F0;
 }
 
 /*Portfolio Section*/

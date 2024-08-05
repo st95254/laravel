@@ -219,6 +219,16 @@
     </section>
     <!-- End Product Section -->
 
+    <!-- Start Proof Section -->
+    <section id="proof_sec">
+        <div class="title">資料證明</div>
+        <div class="link">
+            <a href="https://drive.google.com/file/d/1B4_qhw0Atm8y0PSyWCrao8Ud4XaN-xK8/view?usp=sharing" class="proof_btn" target="_blank">許可證明</a>
+            <a href="https://drive.google.com/file/d/1R8QKJv1LBJ0ccKB1VJJAoXU_WyCMiGbc/view?usp=sharing" class="proof_btn" target="_blank">金箔材料</a>
+        </div>
+    </section>
+    <!-- End Proof Section -->
+
     <!-- Ｓtart Portfolio Section -->
     <section id="protfolio_sec">
         <div class="title">技術與服務</div>
