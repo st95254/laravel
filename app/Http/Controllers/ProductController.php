@@ -11,10 +11,19 @@ class ProductController extends Controller
 {
     public function showGold()
     {
-        $products = Product::where('product_type', 'gold')
-                            ->where('in_stock', 1)
-                            ->get();
-        return view('products.gold', compact('products'));
+        $goldProducts = Product::where('product_type', 'gold')
+                                    ->where('in_stock', 1)
+                                    ->get();
+
+        $edibleProducts = Product::where('product_type', 'edible')
+                                    ->where('in_stock', 1)
+                                    ->get();
+
+        $silverProducts = Product::where('product_type', 'silver')
+                                    ->where('in_stock', 1)
+                                    ->get();
+            
+        return view('products.gold', compact('goldProducts', 'edibleProducts', 'silverProducts'));
     }
 
     public function showTea()

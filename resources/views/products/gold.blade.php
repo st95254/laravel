@@ -98,35 +98,35 @@
                         <th scope="row">1</th>
                         <td>一號金箔</td>
                         <td>9 分</td>
-                        <td>2.65公分 x 2.65公分</td>
+                        <td>2.65 公分 x 2.6 5公分</td>
                         <td id="total0"></td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
                         <td>一號金箔</td>
                             <td>1 吋 2</td>
-                        <td>3.55公分 x 3.55公分</td>
+                        <td>3.55 公分 x 3.55 公分</td>
                         <td id="total1"></td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
                         <td>一號金箔</td>
                         <td>1 吋 8</td>
-                        <td>5.40公分 x 5.40公分</td>
+                        <td>5.40 公分 x 5.40 公分</td>
                         <td id="total2"></td>
                     </tr>
                     <tr>
                         <th scope="row">4</th>
                         <td>一號金箔</td>
                         <td>3 吋 6</td>
-                        <td>10.9公分 x 10.9公分</td>
+                        <td>10.9 公分 x 10.9 公分</td>
                         <td id="total3"></td>
                     </tr>
                     <tr>
                         <th scope="row">5</th>
                         <td>四號金箔</td>
                         <td>9 分</td>
-                        <td>2.65公分 x 2.65公分</td>
+                        <td>2.65 公分 x 2.65 公分</td>
                         <td id="total4"></td>
                     </tr>
                     <tr>
@@ -140,14 +140,14 @@
                         <th scope="row">7</th>
                         <td>四號金箔</td>
                         <td>1 吋 8</td>
-                        <td>5.40公分 x 5.40公分</td>
+                        <td>5.40 公分 x 5.40 公分</td>
                         <td id="total6"></td>
                     </tr>
                     <tr>
                         <th scope="row">8</th>
                         <td>四號金箔</td>
                         <td>3 吋 6</td>
-                        <td>10.9公分 x 10.9公分</td>
+                        <td>10.9 公分 x 10.9 公分</td>
                         <td id="total7"></td>
                     </tr>
                 </tbody>
@@ -159,8 +159,9 @@
     <!-- Start Product Section -->
     <section id="product_sec">
         <div class="title">商品選購</div>
+        <div class="sub_title">金箔</div>
         <div class="product_lis">
-            @foreach ($products as $product)
+            @foreach ($goldProducts as $product)
                 <a href="{{ route('products.detail', ['id' => $product->id]) }}" class="card-link">
                     <div class="card">
                         <div class="img">
@@ -176,6 +177,45 @@
                 </a>
             @endforeach
         </div>
+
+        <div class="sub_title">食用金箔</div>
+        <div class="product_lis">
+            @foreach ($edibleProducts as $product)
+                <a href="{{ route('products.detail', ['id' => $product->id]) }}" class="card-link">
+                    <div class="card">
+                        <div class="img">
+                            <img src="{{ $product->image }}" alt="{{ $product->name }}">
+                        </div>
+                        <div class="info">
+                            <div class="tt">
+                                {{ $product->name }}
+                            </div>
+                            <div class="price">${{ number_format($product->price, 0) }}元</div>
+                        </div>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+
+        <div class="sub_title">銀箔</div>
+        <div class="product_lis">
+            @foreach ($silverProducts as $product)
+                <a href="{{ route('products.detail', ['id' => $product->id]) }}" class="card-link">
+                    <div class="card">
+                        <div class="img">
+                            <img src="{{ $product->image }}" alt="{{ $product->name }}">
+                        </div>
+                        <div class="info">
+                            <div class="tt">
+                                {{ $product->name }}
+                            </div>
+                            <div class="price">${{ number_format($product->price, 0) }}元</div>
+                        </div>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+
     </section>
     <!-- End Product Section -->
 

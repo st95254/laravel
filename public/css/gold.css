@@ -74,9 +74,14 @@ h3 {
     width: 80%;
     margin: 100px auto;
 }
+.sub_title {
+    text-align: center;
+    font-size: 25px;
+    margin: 5px auto;
+}
 .product_lis{
     width: 90%;
-    margin: auto;
+    margin: 0 auto 30px auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 25px 0px;
