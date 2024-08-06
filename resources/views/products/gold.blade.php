@@ -98,57 +98,57 @@
                     <tr>
                         <th scope="row">1</th>
                         <td>一號金箔</td>
-                        <td>9分</td>
-                        <td>2.65公分 x 2.65公分</td>
+                        <td>9 分</td>
+                        <td>2.65 公分 x 2.65 公分</td>
                         <td id="total0"></td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
                         <td>一號金箔</td>
-                            <td>1吋2</td>
-                        <td>3.55公分 x 3.55公分</td>
+                            <td>1 吋 2</td>
+                        <td>3.55 公分 x 3.55 公分</td>
                         <td id="total1"></td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
                         <td>一號金箔</td>
-                        <td>1吋8</td>
-                        <td>5.40公分 x 5.40公分</td>
+                        <td>1 吋 8</td>
+                        <td>5.40 公分 x 5.40 公分</td>
                         <td id="total2"></td>
                     </tr>
                     <tr>
                         <th scope="row">4</th>
                         <td>一號金箔</td>
-                        <td>3吋6</td>
-                        <td>10.9公分 x 10.9公分</td>
+                        <td>3 吋 6</td>
+                        <td>10.9 公分 x 10.9 公分</td>
                         <td id="total3"></td>
                     </tr>
                     <tr>
                         <th scope="row">5</th>
                         <td>四號金箔</td>
-                        <td>9分</td>
-                        <td>2.65公分 x 2.65公分</td>
+                        <td>9 分</td>
+                        <td>2.65 公分 x 2.65 公分</td>
                         <td id="total4"></td>
                     </tr>
                     <tr>
                         <th scope="row">6</th>
                         <td>四號金箔</td>
                         <td>1 吋 2</td>
-                        <td>3.55公分 x 3.55公分</td>
+                        <td>3.55 公分 x 3.55 公分</td>
                         <td id="total5"></td>
                     </tr>
                     <tr>
                         <th scope="row">7</th>
                         <td>四號金箔</td>
-                        <td>1吋8</td>
-                        <td>5.40公分 x 5.40公分</td>
+                        <td>1 吋 8</td>
+                        <td>5.40 公分 x 5.40 公分</td>
                         <td id="total6"></td>
                     </tr>
                     <tr>
                         <th scope="row">8</th>
                         <td>四號金箔</td>
-                        <td>3吋6</td>
-                        <td>10.9公分 x 10.9公分</td>
+                        <td>3 吋 6</td>
+                        <td>10.9 公分 x 10.9 公分</td>
                         <td id="total7"></td>
                     </tr>
                 </tbody>
@@ -225,7 +225,7 @@
         <div class="title">資料證明</div>
         <div class="link">
             <a href="https://drive.google.com/file/d/1B4_qhw0Atm8y0PSyWCrao8Ud4XaN-xK8/view?usp=sharing" class="proof_btn" target="_blank">許可證明</a>
-            <a href="https://drive.google.com/file/d/1R8QKJv1LBJ0ccKB1VJJAoXU_WyCMiGbc/view?usp=sharing" class="proof_btn" target="_blank">金箔材料</a>
+            <!-- <a href="https://drive.google.com/file/d/1R8QKJv1LBJ0ccKB1VJJAoXU_WyCMiGbc/view?usp=sharing" class="proof_btn" target="_blank">金箔材料</a> -->
         </div>
     </section>
     <!-- End Proof Section -->
