@@ -45,10 +45,11 @@
                     var cleanPrice = price.price.replace(/NT\$ /, '').replace(/,/g, '');
                     // 將清理後的價格轉換為浮點數並乘以 1.1
                     var adjustedPrice = parseFloat(cleanPrice) * 1.1;
-                    // 格式化調整後的價格為兩位小數，並更新到對應的td元素
-                    document.getElementById(`total${index}`).innerText = `NT$ ${adjustedPrice.toFixed(0)}`;
+                    // 格式化調整後的價格為整數，並更新到對應的td元素
+                    var formattedPrice = adjustedPrice.toLocaleString('en-US', { style: 'currency', currency: 'TWD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
+                    document.getElementById(`total${index}`).innerText = formattedPrice;
 
-                    if(leafAmount == 100) {
+                    if (leafAmount == 100) {
                         updateGoldPriceOnServer(index, adjustedPrice.toFixed(0));
                     }
                 });

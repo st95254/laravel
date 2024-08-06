@@ -14,7 +14,7 @@
                     <p>{!! $product->description !!}</p>
                 </div>
                 <div class="detail">
-                    <div class="money">NT$ {{ $product->price }}</div>
+                    <div class="money">NT${{ number_format($product->price, 0) }}</div>
                     <div class="counter">
                         <button id="decrease">-</button>
                         <span id="number">1</span>
