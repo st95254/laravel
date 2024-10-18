@@ -45,18 +45,39 @@ class ProductController extends Controller
         return view('products.detail', compact('product'));
     }
 
-    public function fetchGoldPrice(Request $request)
+    public function fetchGoldPrice()
     {
-        $amount = $request->input('amount', 100);  // 默認為100如果沒有提供
-        $targetUrl = 'https://www.allbeauty.com.tw/GoldLeaf/?Curr=NT&OrderQty=' . $amount;
-        $response = Http::get($targetUrl);
-        $html = $response->body();
-        $crawler = new Crawler($html);
-        $prices = $crawler->filterXPath("//table[@id='goldleaf']//tr/td[contains(@class, 'right')]")->each(function (Crawler $node, $i) {
-            return ['price' => trim($node->text())];
-        });
+        try {
+            // 設定目標URL
+            $goldUrl = 'https://tradingeconomics.com/commodity/gold';
+            $exchangeRateUrl = 'https://rate.bot.com.tw/xrt/quote/ltm/USD';
 
-        return response()->json($prices);
+            // 抓取金價
+            $goldResponse = Http::get($goldUrl);
+            $goldHtml = $goldResponse->body();
+            $goldCrawler = new Crawler($goldHtml);
+            $goldPrice = $goldCrawler->filter('#p')->first()->text(); // 抓取金價
+
+            // 抓取匯率
+            $exchangeRateResponse = Http::get($exchangeRateUrl);
+            $exchangeRateHtml = $exchangeRateResponse->body();
+            $exchangeRateCrawler = new Crawler($exchangeRateHtml);
+            $exchangeRate = $exchangeRateCrawler->filter('.rate-content-sight')->eq(4)->text(); // 抓取賣出匯率
+
+            // 去掉匯率中的逗號並轉換為浮點數
+            $exchangeRate = (float) str_replace(',', '', $exchangeRate);
+
+            // 計算最終金價 (乘以匯率)
+            $goldPriceNTD = (float) str_replace(',', '', $goldPrice) * $exchangeRate;
+
+            return response()->json([
+                'gold_price' => $goldPrice,
+                'exchange_rate' => $exchangeRate,
+                'gold_price_NTD' => $goldPriceNTD,
+            ]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 
     public function updateGoldPrice(Request $request)

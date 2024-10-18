@@ -32,25 +32,47 @@
             GetGoldPrice();
         }
     }    
+
     function GetGoldPrice() {
         // 取得輸入框中的數值
         var leafAmount = document.getElementById('LeafAmount').value;
-
+        
         // 進行API調用
-        fetch(`/products/gold/fetch-gold-prices?amount=${leafAmount}`)
+        fetch(`/products/gold/fetch-gold-prices`)
             .then(response => response.json())
-            .then(prices => {
-                prices.forEach((price, index) => {
-                    // 移除價格中的 'NT$ ' 和逗號
-                    var cleanPrice = price.price.replace(/NT\$ /, '').replace(/,/g, '');
-                    // 將清理後的價格轉換為浮點數並乘以 1.1
-                    var adjustedPrice = parseFloat(cleanPrice) * 1.1;
-                    // 格式化調整後的價格為整數，並更新到對應的td元素
-                    var formattedPrice = adjustedPrice.toLocaleString('en-US', { style: 'currency', currency: 'TWD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
-                    document.getElementById(`total${index}`).innerText = formattedPrice;
+            .then(data => {
+                console.log("Received price from API:", data); // 調試，檢查返回的數據
 
-                    if (leafAmount == 100) {
-                        updateGoldPriceOnServer(index, adjustedPrice.toFixed(0));
+                // 更新倫敦即時金價和匯率
+                document.getElementById('goldPrice').innerText = data.gold_price;
+                document.getElementById('exchangeRate').innerText = data.exchange_rate;
+
+                // 定義計算公式對應表
+                const calculations = {
+                    total0: (price) => (price / 31.10347) * 15.653 * 100 * 0.00015,
+                    total1: (price) => (price / 31.10347) * 28.09 * 100 * 0.00015,
+                    total2: (price) => (price / 31.10347) * 64.997 * 100 * 0.00015,
+                    total3: (price) => (price / 31.10347) * 264.8249 * 100 * 0.00015,
+                    total4: (price) => (price / 31.10347) * 15.653 * 100 * 0.000135,
+                    total5: (price) => (price / 31.10347) * 28.09 * 100 * 0.000135,
+                    total6: (price) => (price / 31.10347) * 64.997 * 100 * 0.000135,
+                    total7: (price) => (price / 31.10347) * 264.8249 * 100 * 0.000135
+                };
+
+                // 遍歷每個計算項目並應用公式
+                Object.keys(calculations).forEach((id, index) => {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        const calculatedValue = calculations[id](data.gold_price_NTD);
+                        // 格式化數字，保留兩位小數並加上逗號和貨幣單位 "NT$"
+                        element.innerText = 'NT$' + calculatedValue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); 
+
+                        // 如果 leafAmount 是 100，則更新到伺服器
+                        if (leafAmount == 100) {
+                            updateGoldPriceOnServer(index, calculatedValue.toFixed(0)); // 固定到 0 位小數
+                        }
+                    } else {
+                        console.error(`Element ${id} not found`);
                     }
                 });
             })
@@ -153,6 +175,10 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <div id="goldPriceContainer">
+            <p>倫敦即時金價 (USD/oz)：<span id="goldPrice"> 加載中...</span></p>
+            <p>即時匯率 (USD/TWD)： <span id="exchangeRate"> 加載中...</span></p>
         </div>
     </section>
     <!-- End Price Section -->
