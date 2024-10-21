@@ -49,14 +49,14 @@
 
                 // 定義計算公式對應表
                 const calculations = {
-                    total0: (price) => (price / 31.10347) * 15.653 * 100 * 0.00015,
-                    total1: (price) => (price / 31.10347) * 28.09 * 100 * 0.00015,
-                    total2: (price) => (price / 31.10347) * 64.997 * 100 * 0.00015,
-                    total3: (price) => (price / 31.10347) * 264.8249 * 100 * 0.00015,
-                    total4: (price) => (price / 31.10347) * 15.653 * 100 * 0.000135,
-                    total5: (price) => (price / 31.10347) * 28.09 * 100 * 0.000135,
-                    total6: (price) => (price / 31.10347) * 64.997 * 100 * 0.000135,
-                    total7: (price) => (price / 31.10347) * 264.8249 * 100 * 0.000135
+                    total0: (price) => (price / 31.10347) * 15.653 * leafAmount * 0.00015,
+                    total1: (price) => (price / 31.10347) * 28.09 * leafAmount * 0.00015,
+                    total2: (price) => (price / 31.10347) * 64.997 * leafAmount * 0.00015,
+                    total3: (price) => (price / 31.10347) * 264.8249 * leafAmount * 0.00015,
+                    total4: (price) => (price / 31.10347) * 15.653 * leafAmount * 0.000135,
+                    total5: (price) => (price / 31.10347) * 28.09 * leafAmount * 0.000135,
+                    total6: (price) => (price / 31.10347) * 64.997 * leafAmount * 0.000135,
+                    total7: (price) => (price / 31.10347) * 264.8249 * leafAmount * 0.000135
                 };
 
                 // 遍歷每個計算項目並應用公式
